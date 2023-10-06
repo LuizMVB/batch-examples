@@ -21,7 +21,7 @@ public class ImparOuParStepConfiguration {
     @Bean
     public Step imparOuParStep(
             @Qualifier("imparOuParReader") IteratorItemReader<Integer> reader,
-            @Qualifier("imparOuParProccessor") FunctionItemProcessor<Integer, String> processor,
+            @Qualifier("imparOuParProcessor") FunctionItemProcessor<Integer, String> processor,
             @Qualifier("imparOuParWriter") ItemWriter<String> writer) {
         return stepBuilderFactory
                 .get("imprimeParImparStep")

@@ -1,14 +1,14 @@
-package br.com.example.demo.batchexamples.proccessor;
+package br.com.example.demo.batchexamples.processor;
 
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ImparOuParProccessorConfiguration {
+public class ImparOuParProcessorConfiguration {
 
     @Bean
-    public FunctionItemProcessor<Integer, String> imparOuParProccessor() {
+    public FunctionItemProcessor<Integer, String> imparOuParProcessor() {
         return new FunctionItemProcessor<>(this::processar);
     }
 
