@@ -10,18 +10,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MultipleFileReaderStepConfiguration {
+public class MultipleFormatFileReaderStepConfiguration {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Bean
-    public Step multipleFileReaderStep(
-            @Qualifier("multipleFileReaderReader")ItemReader reader,
-            @Qualifier("multipleFileReaderWriter")ItemWriter writer) {
+    public Step multipleFormatFileReaderStep(
+            @Qualifier("multipleFormatFileReaderReader")ItemReader reader,
+            @Qualifier("multipleFormatFileReaderWriter")ItemWriter writer) {
         return stepBuilderFactory
-                .get("multipleFileReaderStep")
+                .get("multipleFormatFileReaderStep")
                 .chunk(10)
                 .reader(reader)
                 .writer(writer)

@@ -12,15 +12,15 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableBatchProcessing
-public class MultipleFileReaderJobConfiguration {
+public class MultipleFormatFileReaderJobConfiguration {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job multipleFileReaderJob(@Qualifier("multipleFileReaderStep")Step step) {
+    public Job multipleFormatFileReaderJob(@Qualifier("multipleFormatFileReaderStep")Step step) {
         return jobBuilderFactory
-                .get("multipleFileReaderJob")
+                .get("multipleFormatFileReaderJob")
                 .start(step)
                 .incrementer(new RunIdIncrementer())
                 .build();

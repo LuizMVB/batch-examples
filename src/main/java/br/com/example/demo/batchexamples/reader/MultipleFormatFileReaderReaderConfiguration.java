@@ -11,16 +11,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 @Configuration
-public class MultipleFileReaderReaderConfiguration {
+public class MultipleFormatFileReaderReaderConfiguration {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Bean
     @StepScope
-    public FlatFileItemReader multipleFileReaderReader(
+    public FlatFileItemReader multipleFormatFileReaderReader(
             @Value("#{jobParameters['arquivoSegurosMultiple']}")Resource resource,
-            @Qualifier("multipleFileReaderLineMapper")LineMapper lineMapper) {
+            @Qualifier("multipleFormatFileReaderLineMapper")LineMapper lineMapper) {
         return new FlatFileItemReaderBuilder<>()
-                .name("multipleFileReaderReader")
+                .name("multipleFormatFileReaderReader")
                 .resource(resource)
                 .lineMapper(lineMapper)
                 .build();

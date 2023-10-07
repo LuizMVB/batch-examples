@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class MultipleFileReaderLineMapperConfiguration {
+public class MultipleFormatFileReaderLineMapperConfiguration {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Bean
-    public PatternMatchingCompositeLineMapper multipleFileReaderLineMapper() {
+    public PatternMatchingCompositeLineMapper multipleFormatFileReaderLineMapper() {
         var lineMapper = new PatternMatchingCompositeLineMapper();
         lineMapper.setTokenizers(getTokenizers());
         lineMapper.setFieldSetMappers(getFieldSetMappers());

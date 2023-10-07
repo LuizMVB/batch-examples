@@ -5,11 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class MultipleFileReaderWriterConfiguration {
+public class MultipleFormatFileReaderWriterConfiguration {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Bean
-    public ItemWriter multipleFileReaderWriter() {
+    public ItemWriter multipleFormatFileReaderWriter() {
         return item -> item.forEach(System.out::println);
     }
 
