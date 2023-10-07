@@ -12,16 +12,16 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableBatchProcessing
-public class UsandoFlatFileReaderJobConfiguration {
+public class DelimitedFileReaderJobConfiguration {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job usandoFlatFileItemReaderJob(@Qualifier("usandoFlatFileItemReaderStep") Step usandoFlatFileItemReaderStep) {
+    public Job delimitedFileReaderJob(@Qualifier("delimitedFileReaderStep") Step step) {
         return jobBuilderFactory
-                .get("usandoFlatFileItemReaderJob")
-                .start(usandoFlatFileItemReaderStep)
+                .get("delimitedFileReaderJob")
+                .start(step)
                 .incrementer(new RunIdIncrementer())
                 .build();
     }

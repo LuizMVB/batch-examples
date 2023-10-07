@@ -11,18 +11,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class UsandoFlatFileItemReaderStepConfiguration {
+public class FixedLengthFileReaderStepConfiguration {
 
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Step usandoFlatFileItemReaderStep(
-            @Qualifier("usandoFlatFileItemReaderReader") ItemReader<Seguro> reader,
-            @Qualifier("usandoFlatFileItemReaderWriter") ItemWriter<Seguro> writer
+    public Step fixedLengthFileReaderStep(
+            @Qualifier("fixedLengthFileReaderReader") ItemReader<Seguro> reader,
+            @Qualifier("fixedLengthFileReaderWriter") ItemWriter<Seguro> writer
     ) {
         return stepBuilderFactory
-                .get("usandoFlatFileItemReaderStep")
+                .get("fixedLengthFileReaderStep")
                 .<Seguro, Seguro>chunk(10)
                 .reader(reader)
                 .writer(writer)
