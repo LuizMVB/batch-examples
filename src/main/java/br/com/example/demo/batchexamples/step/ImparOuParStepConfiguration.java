@@ -7,7 +7,6 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.batch.item.support.IteratorItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,9 +19,9 @@ public class ImparOuParStepConfiguration {
 
     @Bean
     public Step imparOuParStep(
-            @Qualifier("imparOuParReader") IteratorItemReader<Integer> reader,
-            @Qualifier("imparOuParProcessor") FunctionItemProcessor<Integer, String> processor,
-            @Qualifier("imparOuParWriter") ItemWriter<String> writer) {
+            IteratorItemReader<Integer> reader,
+            FunctionItemProcessor<Integer, String> processor,
+            ItemWriter<String> writer) {
         return stepBuilderFactory
                 .get("imprimeParImparStep")
                 .<Integer, String>chunk(10)

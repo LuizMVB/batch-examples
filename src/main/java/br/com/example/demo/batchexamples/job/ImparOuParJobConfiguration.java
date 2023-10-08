@@ -17,7 +17,7 @@ public class ImparOuParJobConfiguration {
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job imparOuParJob(@Qualifier("imparOuParStep") Step step) {
+    public Job imparOuParJob(Step step) {
         return jobBuilderFactory
                 .get("imparOuParJob")
                 .start(step)
