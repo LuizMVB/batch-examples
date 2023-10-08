@@ -24,19 +24,4 @@ public class OlaMundoCruelStepConfiguration {
                 .build();
     }
 
-    /*Exemplo obtendo um valo das variáveis de ambiente
-
-    @Bean
-    @StepScope
-    public Step olaMundoCruelStep(
-            @Value("#{jobParameters['nome']}") String nome) {
-        return stepBuilderFactory
-                .get("olaMundoCruelStep")
-                .tasklet((stepContribution, chunkContext) -> {
-                    System.out.format("Olá, meu nome é %s e o mundo cruel!", nome);
-                    return RepeatStatus.FINISHED;
-                })
-                .build();
-    }*/
-
 }

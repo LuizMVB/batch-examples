@@ -18,7 +18,7 @@ public class OlaMundoCruelJobConfiguration {
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job olaMundoCruelJob(@Qualifier("olaMundoCruelStep") Step step) {
+    public Job olaMundoCruelJob(Step step) {
         return jobBuilderFactory
                 .get("olaMundoCruelJob")
                 .incrementer(new RunIdIncrementer())
