@@ -4,17 +4,14 @@ import br.com.example.demo.batchexamples.domain.Parceiro;
 import br.com.example.demo.batchexamples.domain.Seguro;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.item.*;
-import org.springframework.batch.item.file.FlatFileItemReader;
-import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
-import org.springframework.core.io.Resource;
 
 @RequiredArgsConstructor
-public class ArquivoSegurosDelimitedMultipleParceiroReader implements ItemStreamReader<Seguro>, ResourceAwareItemReaderItemStream<Seguro> {
+public class AgregadorDeParceirosAoSeguroReader implements ItemStreamReader<Seguro> {
 
     private Object objAtual;
-    private FlatFileItemReader<Object> delegate;
+    private ItemStreamReader<Object> delegate;
 
-    public ArquivoSegurosDelimitedMultipleParceiroReader(FlatFileItemReader<Object> delegate) {
+    public AgregadorDeParceirosAoSeguroReader(ItemStreamReader<Object> delegate) {
         this.delegate = delegate;
     }
 
@@ -53,8 +50,4 @@ public class ArquivoSegurosDelimitedMultipleParceiroReader implements ItemStream
         return objAtual;
     }
 
-    @Override
-    public void setResource(Resource resource) {
-        delegate.setResource(resource);
-    }
 }
