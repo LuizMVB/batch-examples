@@ -6,21 +6,20 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableBatchProcessing
-public class OlaMundoCruelJobConfiguration {
+public class OlaMundoCruelComStepScopeJobConfiguration {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job olaMundoCruelJob(@Qualifier("olaMundoCruelStep") Step step) {
+    public Job olaMundoCruelComStepScopeJob(Step step) {
         return jobBuilderFactory
-                .get("olaMundoCruelJob")
+                .get("olaMundoCruelComStepScopeJob")
                 .incrementer(new RunIdIncrementer())
                 .start(step)
                 .build();
