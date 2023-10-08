@@ -12,12 +12,5 @@ public class Seguro {
     private Long id;
     private String nome;
     private String tipo;
-    private List<Parceiro> parceiros = new ArrayList<>();
-
-    public void addParceiro(Parceiro parceiro) {
-        if(CollectionUtils.isEmpty(parceiros))
-            parceiros = new ArrayList<>();
-        parceiros.add(parceiro);
-    }
 
 }

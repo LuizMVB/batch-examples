@@ -1,6 +1,0 @@
-0,1,ProtFin,SPF
-1,403020,Loja1
-0,2,AcPess,AP
-0,3,Automovel,AUTO
-1,203040,Loja2
-1,204050,Loja3
