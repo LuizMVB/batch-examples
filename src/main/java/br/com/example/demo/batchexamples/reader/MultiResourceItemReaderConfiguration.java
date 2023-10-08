@@ -4,26 +4,25 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.MultiResourceItemReader;
 import org.springframework.batch.item.file.builder.MultiResourceItemReaderBuilder;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 @Configuration
-public class MultiplosArquivosDeMultiplosFormatosReaderReaderConfiguration {
+public class MultiResourceItemReaderConfiguration {
 
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Bean
     @StepScope
-    public MultiResourceItemReader multiplosArquivosDeMultiplosFormatosReaderReader(
+    public MultiResourceItemReader multiResourceItemReader(
             @Value("#{jobParameters['arquivosSegurosMultipleList']}")Resource[] resourceList,
-            @Qualifier("multipleFormatFileReaderReader") FlatFileItemReader flatFileItemReader) {
+            FlatFileItemReader flatFileItemReader) {
         return new MultiResourceItemReaderBuilder<>()
-                .name("multiplosArquivosDeMultiplosFormatosReaderReader")
+                .name("multiResourceItemReader")
                 .resources(resourceList)
-                .delegate(new ArquivoSegurosDelimitedMultipleParceiroReader(flatFileItemReader))
+                .delegate(new AgregadorDeParceirosAoSeguroReader(flatFileItemReader))
                 .build();
 
     }

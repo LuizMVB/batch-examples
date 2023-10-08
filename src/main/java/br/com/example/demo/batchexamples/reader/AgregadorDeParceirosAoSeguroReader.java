@@ -9,12 +9,12 @@ import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
 import org.springframework.core.io.Resource;
 
 @RequiredArgsConstructor
-public class ArquivoSegurosDelimitedMultipleParceiroReader implements ItemStreamReader<Seguro>, ResourceAwareItemReaderItemStream<Seguro> {
+public class AgregadorDeParceirosAoSeguroReader implements ItemStreamReader<Seguro>, ResourceAwareItemReaderItemStream<Seguro> {
 
     private Object objAtual;
     private FlatFileItemReader<Object> delegate;
 
-    public ArquivoSegurosDelimitedMultipleParceiroReader(FlatFileItemReader<Object> delegate) {
+    public AgregadorDeParceirosAoSeguroReader(FlatFileItemReader<Object> delegate) {
         this.delegate = delegate;
     }
 
