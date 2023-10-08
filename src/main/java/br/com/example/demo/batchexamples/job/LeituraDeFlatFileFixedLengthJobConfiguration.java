@@ -12,17 +12,17 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableBatchProcessing
-public class OlaMundoCruelJobConfiguration {
+public class LeituraDeFlatFileFixedLengthJobConfiguration {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job olaMundoCruelJob(@Qualifier("olaMundoCruelStep") Step step) {
+    public Job leituraDeFlatFileFixedLengthJob(Step step) {
         return jobBuilderFactory
-                .get("olaMundoCruelJob")
-                .incrementer(new RunIdIncrementer())
+                .get("leituraDeFlatFileFixedLengthJob")
                 .start(step)
+                .incrementer(new RunIdIncrementer())
                 .build();
     }
 

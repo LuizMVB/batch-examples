@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 @Configuration
-public class FixedLengthFileReaderReaderConfiguration {
+public class LeituraDeFlatFileFixedLengthReaderConfiguration {
 
     @Bean
     @StepScope
-    public FlatFileItemReader<Seguro> fixedLengthFileReaderReader(
+    public FlatFileItemReader<Seguro> leituraDeFlatFileFixedLengthReader(
             @Value("#{jobParameters['arquivoSegurosFixedLength']}") Resource resource) {
         return new FlatFileItemReaderBuilder<Seguro>()
-                .name("fixedLengthFileReaderReader")
+                .name("leituraDeFlatFileFixedLengthReader")
                 .resource(resource)
                 .fixedLength()
                 .columns(new Range[] {new Range(1, 10), new Range(11, 20), new Range(21, 24)})
