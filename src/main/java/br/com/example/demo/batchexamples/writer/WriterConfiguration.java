@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DelimitedFileReaderWriterConfiguration {
+public class WriterConfiguration {
 
     @Bean
-    public ItemWriter<Seguro> delimitedFileReaderWriter() {
-        return item -> item.forEach(System.out::println);
+    public ItemWriter<Seguro> writer() {
+        return list -> list.forEach(System.out::println);
     }
 
 }

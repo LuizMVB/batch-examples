@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: batch-examples
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://seguro-batch-examples-db:3306/seguro-batch-examples-db
+    username: root
+    password: ifljava
+  batch:
+    initialize-schema: always
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 0.0
+
+logging:
+  config: /etc/config/batch-examples/log4j.xml
+

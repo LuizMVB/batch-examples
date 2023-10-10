@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+  mysql:
+    image: mysql:8.0.32
+    container_name: seguro-batch-examples-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - seguro-batch-examples-db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: seguro-batch-examples-db
+      MYSQL_ROOT_PASSWORD: ifljava
+    networks:
+      - batch-examples-bridge
+
+  batch-examples:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: luizmiguelvb/batch-examples
+    container_name: batch-examples
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    networks:
+      - batch-examples-bridge
+    depends_on:
+      - mysql
+
+networks:
+  batch-examples-bridge:
+    name: "batch-examples-bridge"
+    driver: bridge
+    external: true
+volumes:
+  seguro-batch-examples-db:

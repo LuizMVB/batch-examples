@@ -1,0 +1,6 @@
+CREATE TABLE seguro(
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
+    PRIMARY KEY(id)
+);

@@ -11,7 +11,7 @@ public class PropsConfig {
    @Bean
     public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         var configurer = new PropertySourcesPlaceholderConfigurer();
-        configurer.setLocation(new FileSystemResource("/etc/config/batch-examples/application.properties"));
+        configurer.setLocation(new FileSystemResource("/etc/config/batch-examples/application.yml"));
         return configurer;
     }
 
